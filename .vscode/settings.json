@@ -1,10 +1,10 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "files.exclude": {
-        "**/bin": true,
-        "**/obj": true,
-        "**/.history/": true,
-        "**/target/": true,
+        "**/bin": false,
+        "**/obj": false,
+        "**/.history/": false,
+        "**app/target/": false,
     },
     "search.exclude": {
         "**/.history/": true,
