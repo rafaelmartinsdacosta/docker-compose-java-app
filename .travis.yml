@@ -15,7 +15,7 @@ before_deploy:
 deploy:
   provider: script
   script: 
-    docker tag docker-from-zero-to-mastery:latest "$DOCKER_HUB_USERNAME"/docker-from-zero-to-mastery:$TRAVIS_JOB_ID;
+    docker tag docker-from-zero-to-mastery:latest "$DOCKER_HUB_USERNAME"/docker-from-zero-to-mastery:latest;
     docker push "$DOCKER_HUB_USERNAME"/docker-from-zero-to-mastery;
   on:
     branch: main
