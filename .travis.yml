@@ -1,0 +1,22 @@
+language: java
+jdk:
+  - oraclejdk11
+before_install:
+  - sudo apt-get update
+  - cd /app
+  - echo "Let's starting maven package!"
+  - mvn clean package
+  - cd ..
+  - echo "We are in root dir"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "$DOCKER_HUB_PASSWORD" | docker login --username "$DOCKER_HUB_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script: 
+    docker push rafaelmartinsdacosta/docker-from-zero-to-mastery:latest;
+  on:
+    branch: main
+notifications:
+  email: false
